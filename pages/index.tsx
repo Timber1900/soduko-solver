@@ -93,14 +93,12 @@ export default function Home() {
         {shape.map((row, largeSquareIndex) => {
           return <div className='border border-black w-full h-full grid grid-cols-3 grid-rows-3' key={largeSquareIndex}>
             {row.map((val, smallSquareIndex) => {
-              //convert from large square index and small square index to row and col
               const row = Math.floor(largeSquareIndex / 3) * 3 + Math.floor(smallSquareIndex / 3)
               const col = (largeSquareIndex % 3) * 3 + (smallSquareIndex % 3)
-              //convert from row and col to index
               const index = row * 9 + col
 
               return <div className={`${grid[index] ?? 0 == 0 ? "text-black": "text-gray-400"} border-[.5px] border-gray-400 w-full h-full grid place-content-center relative focus-within:text-3xl transition-all`} key={`col${smallSquareIndex}row${largeSquareIndex}`}>
-                <p id={`${index}`} className='focus:outline-none' contentEditable={edit} onKeyDown={onValChange} suppressContentEditableWarning={true}>{grid[index] ?? 0}</p>
+                <p id={`${index}`} className='focus:outline-none' inputMode='decimal' contentEditable={edit} onKeyDown={onValChange} suppressContentEditableWarning={true}>{grid[index] ?? 0}</p>
                 <div className='absolute text-sm text-gray-500 right-0 bottom-0'>
                   <p>
                     {gridPossible[index]?.reduce((acc, val) => acc ? `${acc}, ${val}` : `${val}`, "") ?? ""}
