@@ -17,6 +17,7 @@ export default function Home() {
 
   const onValChange = (event: KeyboardEvent<HTMLParagraphElement>) => {
     event.preventDefault()
+    console.log(event.key)
 
     //check if event.key is a number
     if (event.key.match(/^[0-9]$/)) {
