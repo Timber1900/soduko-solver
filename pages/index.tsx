@@ -17,7 +17,6 @@ export default function Home() {
 
   const onValChange = (event: KeyboardEvent<HTMLParagraphElement>) => {
     event.preventDefault()
-    console.log(event.key)
 
     //check if event.key is a number
     if (event.key.match(/^[0-9]$/)) {
@@ -67,26 +66,18 @@ export default function Home() {
       }
     }
 
-    //check if event.key is tab
     if (event.key === 'Tab') moveBy(1)
-    //check if event.key is backspace
     if (event.key === 'Backspace') moveBy(-1)
-    //cehck if event.key is up arrow
     if (event.key === 'ArrowUp') moveBy(-9)
-    //check if event.key is down arrow
     if (event.key === 'ArrowDown') moveBy(9)
-    //check if event.key is left arrow
     if (event.key === 'ArrowLeft') moveBy(-1)
-    //check if event.key is right arrow
     if (event.key === 'ArrowRight') moveBy(1)
-
-    console.log(event.key)
   }
 
   return (
     <div className="flex flex-col items-center justify-center w-screen h-screen bg-gray-300">
       <Head>
-        <title>Create Next App</title>
+        <title>Soduko Solver</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -100,7 +91,7 @@ export default function Home() {
 
               return <div className={`${grid[index] ?? 0 == 0 ? "text-black": "text-gray-400"} border-[.5px] border-gray-400 w-full h-full grid place-content-center relative focus-within:text-3xl transition-all`} key={`col${smallSquareIndex}row${largeSquareIndex}`}>
                 <p id={`${index}`} className='focus:outline-none' inputMode='decimal' contentEditable={edit} onKeyDown={onValChange} suppressContentEditableWarning={true}>{grid[index] ?? 0}</p>
-                <div className='absolute text-sm text-gray-500 right-0 bottom-0'>
+                <div className='absolute md:text-sm sm:text-xs text-[0.5rem] text-gray-500 right-0 bottom-0'>
                   <p>
                     {gridPossible[index]?.reduce((acc, val) => acc ? `${acc}, ${val}` : `${val}`, "") ?? ""}
                   </p>
