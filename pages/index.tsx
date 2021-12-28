@@ -89,10 +89,10 @@ export default function Home() {
               const col = (largeSquareIndex % 3) * 3 + (smallSquareIndex % 3)
               const index = row * 9 + col
 
-              return <div className={`${grid[index] ?? 0 == 0 ? "text-black": "text-gray-400"} border-[.5px] border-gray-400 w-full h-full grid place-content-center relative focus-within:text-3xl transition-all`} key={`col${smallSquareIndex}row${largeSquareIndex}`}>
+              return <div className={`${grid[index] ?? 0 == 0 ? "text-black": "text-gray-400"} border-[.5px] border-gray-400 w-full h-full grid place-content-center relative focus-within:text-3xl md:text-2xl sm:text-lg text-base transition-all`} key={`col${smallSquareIndex}row${largeSquareIndex}`}>
                 <p id={`${index}`} className='focus:outline-none' inputMode='decimal' contentEditable={edit} onKeyDown={onValChange} suppressContentEditableWarning={true}>{grid[index] ?? 0}</p>
-                <div className='absolute md:text-sm sm:text-xs text-[0.5rem] text-gray-500 right-0 bottom-0'>
-                  <p>
+                <div className='absolute md:text-sm text-xs text-gray-500 inset-0 flex flex-col items-end justify-end'>
+                  <p className='max-w-full truncate px-0.5'>
                     {gridPossible[index]?.reduce((acc, val) => acc ? `${acc}, ${val}` : `${val}`, "") ?? ""}
                   </p>
                 </div>
