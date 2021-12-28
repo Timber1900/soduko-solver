@@ -89,7 +89,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='h-4/5 aspect-square grid grid-cols-3 grid-rows-3 border_custom rounded-sm text-2xl bg-white'>
+      <div className='max-h-[80%] max-w-[80%] w-4/5 aspect-square grid grid-cols-3 grid-rows-3 border_custom rounded-sm text-2xl bg-white'>
         {shape.map((row, largeSquareIndex) => {
           return <div className='border border-black w-full h-full grid grid-cols-3 grid-rows-3' key={largeSquareIndex}>
             {row.map((val, smallSquareIndex) => {
@@ -111,7 +111,7 @@ export default function Home() {
           </div>
         })}
       </div>
-      <div className='mt-12 flex flex-row gap-12 text-xl'>
+      <div className='mt-12 flex flex-row flex-wrap gap-12 text-xl items-center justify-center'>
         <button className='px-4 py-1 outline outline-black bg-white rounded-md' onClick={solveButton}>Solve</button>
         <button className='px-4 py-1 outline outline-black bg-white rounded-md' onClick={randomGrid}>Reset</button>
         <div className='flex flex-row justify-center items-center px-4 py-1 outline outline-black bg-white rounded-md'>
